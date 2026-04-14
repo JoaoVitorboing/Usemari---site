@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Usemari</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="brand" id="logoHome" style="cursor: pointer;">
+        <div class="brand-badge">♡</div>
+        <span class="brand-name">Usemari</span>
+      </div>
+
+      <nav class="nav" id="navMenu">
+        <a href="#" id="homeLink" class="active">Início</a>
+        <a href="#">Produtos</a>
+        <a href="#">Sobre</a>
+        <a href="#">Contato</a>
+      </nav>
+
+      <div class="actions">
+        <button
+          class="icon-btn desktop-only search-toggle"
+          id="openSearch"
+          aria-label="Pesquisar"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <button
+          class="icon-btn desktop-only favorites-toggle"
+          id="openFavorites"
+          aria-label="Favoritos"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+            ></path>
+          </svg>
+        </button>
+
+        <a href="#" class="icon-btn desktop-only" aria-label="Carrinho">
+          <svg
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path
+              d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+            ></path>
+          </svg>
+        </a>
+
+        <a href="#" class="icon-btn desktop-only" aria-label="Usuário">
+          <svg
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M20 21a8 8 0 0 0-16 0"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+
+        <button
+          class="mobile-menu-btn"
+          id="mobileMenuBtn"
+          aria-label="Abrir menu"
+        >
+          ☰
+        </button>
+      </div>
+    </header>
+    <div id="mainContent">
+    <section class="hero">
+      <div class="hero-bg hero-bg-1 active" id="heroBg1"></div>
+      <div class="hero-bg hero-bg-2" id="heroBg2"></div>
+
+      <div class="hero-content">
+        <div class="content-box">
+          <div class="tag">
+            <span class="tag-dot">✦</span>
+            <span>Nova coleção</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="line-1">Vista-se com</span>
+            <span class="line-2">leveza e estilo</span>
+          </h1>
+
+          <p class="hero-text">
+            Peças femininas elegantes para cada momento da sua vida. Descubra a
+            coleção Usemari e realce sua beleza com sofisticação.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#" class="btn btn-primary">
+              Explorar Coleção
+              <span>→</span>
+            </a>
+            <a href="#" class="btn btn-secondary">Nossa História</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-dots" id="sliderDots">
+        <button class="dot active" aria-label="Banner 1"></button>
+        <button class="dot" aria-label="Banner 2"></button>
+        <button class="dot" aria-label="Banner 3"></button>
+      </div>
+
+      <div class="promake-badge">✦ Built by Promake</div>
+    </section>
+
+    <section class="categorias">
+      <div class="section-title">
+        <span class="mini-title">EXPLORE</span>
+        <h2>Nossas Categorias</h2>
+        <div class="line"></div>
+      </div>
+    </section>
+
+    <section class="destaques">
+      <div class="section-title">
+        <span class="mini-title">DESTAQUES</span>
+        <h2>Peças em Destaque</h2>
+        <div class="line"></div>
+        <p>Selecionadas com carinho para você</p>
+      </div>
+
+      <div class="destaques-btn-area">
+        <a href="#" class="btn-outline">Ver Toda a Coleção <span>→</span></a>
+      </div>
+    </section>
+
+    <section class="beneficios">
+      <div class="beneficio-item">
+        <div class="beneficio-icone">🚚</div>
+        <h3>Entrega Rápida</h3>
+        <p>Receba em casa com agilidade e segurança</p>
+      </div>
+
+      <div class="beneficio-item">
+        <div class="beneficio-icone">🔄</div>
+        <h3>Troca Fácil</h3>
+        <p>Trocas sem complicação em até 30 dias</p>
+      </div>
+
+      <div class="beneficio-item">
+        <div class="beneficio-icone">⭐</div>
+        <h3>Qualidade Premium</h3>
+        <p>Peças selecionadas com cuidado e carinho</p>
+      </div>
+    </section>
+
+    <section class="cta-final">
+      <div class="cta-icon">✧</div>
+      <h2>Sua próxima peça favorita</h2>
+      <p>está esperando por você</p>
+      <a href="#" class="btn-primary-cta"
+        >Ver Coleção Completa <span>→</span></a
+      >
+    </section>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-col footer-brand">
+          <div class="footer-logo">
+            <div class="footer-badge">♡</div>
+            <span class="footer-name">Usemari</span>
+          </div>
+
+          <p>
+            Moda feminina elegante e moderna para a mulher contemporânea.
+            Vestidos, saias, cropped e body com estilo e leveza.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Links Rápidos</h4>
+          <a href="#">Sobre Nós</a>
+          <a href="#">Contato</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Termos de Uso</a>
+          <a href="#">Política de Cookies</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <a href="tel:+5581984893080">📞 +55 (81) 98489-3080</a>
+          <a href="mailto:usemari@gmail.com">✉️ usemari@gmail.com</a>
+          <a href="#">📍 Pernambuco, Brasil</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Usemari. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+    </div>
+
+    <div class="search-modal" id="searchModal">
+      <div class="search-overlay" id="searchOverlay"></div>
+
+      <div class="search-box">
+        <div class="search-box-header">
+          <h3>Buscar Produtos</h3>
+          <button
+            class="close-search"
+            id="closeSearch"
+            aria-label="Fechar busca"
+          ></button>
+        </div>
+
+        <div class="search-input-wrapper">
+          <span class="search-input-icon">
+            <svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="7"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </span>
+
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Buscar produtos..."
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="search-results" id="searchResults"></div>
+      </div>
+    </div>
+
+    <section class="favorites-page" id="favoritesPage">
+  <div class="favorites-page-content">
+
+    <div class="favorites-empty" id="favoritesEmpty">
+      <div class="favorites-icon">♡</div>
+      <h2>Nenhum Favorito Ainda</h2>
+
+      <p>
+        Comece a navegar pelos nossos produtos e adicione itens aos seus
+        favoritos clicando no ícone de coração.
+      </p>
+
+      <button class="btn-favorites" id="backToHome">
+        Explorar Produtos
+      </button>
+    </div>
+
+    <div class="favorites-list" id="favoritesList"></div>
+
+  </div>
+</section>
+    <script src="scripts.js"></script>
+  </body>
+</html>
