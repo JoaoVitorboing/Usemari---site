@@ -1,5 +1,7 @@
 (() => {
-  const openUserButtons = document.querySelectorAll("#openUser, #openUserSearch");
+  const openUserButtons = document.querySelectorAll(
+    "#openUser, #openUserSearch",
+  );
   const togglePassword = document.querySelector(".toggle-password");
   const senhaInput = document.getElementById("senha");
 
@@ -65,7 +67,7 @@
 
   function atualizarHeaderUsuario(nome) {
     if (!userStatusText) return;
-    userStatusText.textContent = nome;
+    userStatusText.textContent = "";
   }
 
   function loginSocial(nome, provedor) {
@@ -84,11 +86,11 @@
   }
 
   openUserButtons.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
-    window.appNavigation?.abrirUsuario();
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.appNavigation?.abrirUsuario();
+    });
   });
-});
 
   if (togglePassword && senhaInput) {
     togglePassword.addEventListener("click", () => {

@@ -31,7 +31,7 @@
               Remover
             </button>
           </div>
-        `
+        `,
       )
       .join("");
 

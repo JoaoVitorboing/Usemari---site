@@ -64,7 +64,9 @@
   color: #8b7f8d;
   font-size: 1rem;
   margin-bottom: 16px;
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .footer-col a:hover {

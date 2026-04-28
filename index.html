@@ -24,8 +24,8 @@
     <nav class="nav" id="navMenu">
       <a href="#" id="homeLink" class="active">Início</a>
       <a href="#" id="productsLink">Produtos</a>
+      <a href="#" id="contactLink">Coleção</a>
       <a href="#" id="aboutLink">Sobre</a>
-      <a href="#" id="contactLink">Contato</a>
     </nav>
 
     <div class="actions">
@@ -55,12 +55,14 @@
         </svg>
       </a>
 
-      <a href="#" class="icon-btn desktop-only" aria-label="Usuário" id="openUser">
+      <a href="#" class="icon-btn desktop-only user-trigger" aria-label="Usuário" id="openUser">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
           stroke-linecap="round" stroke-linejoin="round">
           <path d="M20 21a8 8 0 0 0-16 0"></path>
           <circle cx="12" cy="7" r="4"></circle>
         </svg>
+
+        <span id="userStatusText" class="user-status-text"></span>
       </a>
 
       <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu">
@@ -92,11 +94,13 @@
           </p>
 
           <div class="hero-buttons">
-            <a href="#" class="btn btn-primary">
+            <a href="#" class="btn btn-primary" id="exploreCollectionBtn">
               Explorar Coleção
               <span>→</span>
             </a>
-            <a href="#" class="btn btn-secondary">Nossa História</a>
+            <a href="#" class="btn btn-secondary" id="historyBtn">
+              Nossa História
+            </a>
           </div>
         </div>
       </div>
@@ -124,7 +128,7 @@
         <p>Selecionadas com carinho para você</p>
       </div>
 
-      <div class="destaques-btn-area">
+      <div class="destaques-btn-area" id="viewAllCollectionBtn">
         <a href="#" class="btn-outline">Ver Toda a Coleção <span>→</span></a>
       </div>
     </section>
@@ -153,7 +157,7 @@
       <div class="cta-icon">✧</div>
       <h2>Sua próxima peça favorita</h2>
       <p>está esperando por você</p>
-      <a href="#" class="btn-primary-cta">Ver Coleção Completa <span>→</span></a>
+      <a href="#" class="btn-primary-cta" id="fullCollectionBtn">Ver Coleção Completa <span>→</span></a>
     </section>
 
     <footer class="footer">
@@ -197,52 +201,34 @@
     </footer>
   </div>
 
-<div class="search-modal" id="searchModal">
-  <div class="search-overlay" id="searchOverlay"></div>
+  <div class="search-modal" id="searchModal">
+    <div class="search-overlay" id="searchOverlay"></div>
 
-  <div class="search-box">
-    <div class="search-box-header">
-      <h3>Buscar Produtos</h3>
+    <div class="search-box">
+      <div class="search-box-header">
+        <h3>Buscar Produtos</h3>
 
-      <button
-        class="close-search"
-        id="closeSearch"
-        aria-label="Fechar busca"
-        type="button"
-      >
-        ×
-      </button>
+        <button class="close-search" id="closeSearch" aria-label="Fechar busca" type="button">
+          ×
+        </button>
+      </div>
+
+      <div class="search-input-wrapper">
+        <span class="search-input-icon">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </span>
+
+        <input type="text" id="searchInput" placeholder="Buscar produtos..." autocomplete="off" />
+      </div>
+
+      <div class="search-results" id="searchResults"></div>
     </div>
-
-    <div class="search-input-wrapper">
-      <span class="search-input-icon">
-        <svg
-          viewBox="0 0 24 24"
-          width="20"
-          height="20"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <circle cx="11" cy="11" r="7"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-      </span>
-
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="Buscar produtos..."
-        autocomplete="off"
-      />
-    </div>
-
-    <div class="search-results" id="searchResults"></div>
   </div>
-</div>
-  </div>
+
 
   <section class="favorites-page" id="favoritesPage">
     <div class="favorites-page-content">
@@ -346,13 +332,14 @@
         <h4>Bem-vinda ✨</h4>
         <button type="button" class="close-welcome" id="closeWelcome">×</button>
       </div>
+
       <p id="welcomeToastText">Seja bem-vinda à Usemari!</p>
     </div>
   </div>
 
   <section class="about-page" id="aboutPage">
     <div class="about-container">
-      <div class="section-tittle">
+      <div class="section-title">
         <h2>Sobre Usemari</h2>
         <div class="line"></div>
         <p>Uma marca criada com amor para a mulher moderna que valoriza elegância e leveza.</p>
@@ -370,6 +357,364 @@
           com diferentes momentos — do casual ao especial — sempre com aquele toque de feminilidade que nos define.
         </p>
       </div>
+      <div class="about-values">
+        <div class="about-value-card">
+          <div class="about-value-icon">◎</div>
+          <h3>Nossa Missão</h3>
+          <p>
+            Fazer com que cada mulher se sinta bonita, confiante e elegante com peças
+            de qualidade e estilo único.
+          </p>
+        </div>
+
+        <div class="about-value-card">
+          <div class="about-value-icon">♡</div>
+          <h3>Nossos Valores</h3>
+          <p>
+            Elegância, qualidade, feminilidade e respeito pela mulher moderna em todas
+            as suas formas.
+          </p>
+        </div>
+
+        <div class="about-value-card">
+          <div class="about-value-icon">♁</div>
+          <h3>Nossa Equipe</h3>
+          <p>
+            Uma equipe apaixonada por moda, dedicada a oferecer a melhor experiência
+            de compra.
+          </p>
+        </div>
+
+        <div class="about-value-card">
+          <div class="about-value-icon">♧</div>
+          <h3>Qualidade em Primeiro Lugar</h3>
+          <p>
+            Cada peça passa por uma seleção rigorosa para garantir conforto,
+            durabilidade e estilo.
+          </p>
+        </div>
+      </div>
+
+      <div class="about-stats">
+        <div class="about-stat-item">
+          <strong>500+</strong>
+          <span>Clientes Satisfeitas</span>
+        </div>
+
+        <div class="about-stat-item">
+          <strong>1000+</strong>
+          <span>Peças Vendidas</span>
+        </div>
+
+        <div class="about-stat-item">
+          <strong>2+</strong>
+          <span>Anos de Experiência</span>
+        </div>
+
+        <div class="about-stat-item">
+          <strong>99%</strong>
+          <span>Satisfação das Clientes</span>
+        </div>
+      </div>
+
+      <div class="about-final-call">
+        <h3>Pronta para se descobrir?</h3>
+        <p>Explore nossa coleção e encontre a peça perfeita para você.</p>
+      </div>
+      <div class="about-contact">
+        <div class="about-contact-header">
+          <span class="mini-title">ATENDIMENTO</span>
+          <h3>Fale com a Usemari</h3>
+          <p>
+            Estamos aqui para tirar suas dúvidas e ajudar você a encontrar o look ideal.
+          </p>
+        </div>
+
+        <div class="about-contact-grid">
+          <a class="about-contact-card" href="https://wa.me/5581984893080" target="_blank">
+            <div class="about-contact-icon">☎</div>
+            <h4>WhatsApp</h4>
+            <p>(+55 81) 98489-3080</p>
+          </a>
+
+          <a class="about-contact-card" href="mailto:usemari@gmail.com">
+            <div class="about-contact-icon">✉</div>
+            <h4>E-mail</h4>
+            <p>usemari@gmail.com</p>
+          </a>
+
+          <div class="about-contact-card">
+            <div class="about-contact-icon">⌖</div>
+            <h4>Localização</h4>
+            <p>Pernambuco, Brasil</p>
+          </div>
+
+          <div class="about-contact-card">
+            <div class="about-contact-icon">↻</div>
+            <h4>Trocas</h4>
+            <p>Trocas e ajustes combinados diretamente pelo atendimento.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-col footer-brand">
+          <div class="footer-logo">
+            <div class="footer-badge">♡</div>
+            <span class="footer-name">Usemari</span>
+          </div>
+
+          <p>
+            Moda feminina elegante e moderna para a mulher contemporânea.
+            Vestidos, saias, cropped e body com estilo e leveza.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Links Rápidos</h4>
+          <a href="#">Sobre Nós</a>
+          <a href="#">Contato</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Termos de Uso</a>
+          <a href="#">Política de Cookies</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <a href="tel:+5581984893080">📞 +55 (81) 98489-3080</a>
+          <a href="mailto:usemari@gmail.com">✉️ usemari@gmail.com</a>
+          <a href="#">📍 Pernambuco, Brasil</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Usemari. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+
+  </section>
+
+  <section class="products-page" id="productsPage">
+    <div class="products-container">
+      <div class="products-header">
+        <div>
+          <h2>Todos os Produtos</h2>
+          <p>Mostrando nossa seleção especial de peças Usemari</p>
+        </div>
+
+        <div class="products-view-actions">
+          <button class="view-btn active">▦</button>
+          <button class="view-btn">☰</button>
+        </div>
+      </div>
+
+      <div class="products-layout">
+        <aside class="products-sidebar">
+          <div class="filter-group">
+            <label for="productSort">Ordenar por</label>
+            <select id="productSort">
+              <option>Destaques</option>
+              <option>Menor preço</option>
+              <option>Maior preço</option>
+              <option>Novidades</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <h3>Categorias</h3>
+
+            <label class="filter-check">
+              <input type="checkbox" />
+              <span>Vestidos</span>
+            </label>
+
+            <label class="filter-check">
+              <input type="checkbox" />
+              <span>Bodys</span>
+            </label>
+
+            <label class="filter-check">
+              <input type="checkbox" />
+              <span>Saias</span>
+            </label>
+
+            <label class="filter-check">
+              <input type="checkbox" />
+              <span>Croppeds</span>
+            </label>
+          </div>
+
+          <div class="filter-group">
+            <h3>Faixa de Preço</h3>
+
+            <div class="price-inputs">
+              <input type="number" placeholder="Mín" />
+              <input type="number" placeholder="Máx" />
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h3>Características</h3>
+
+            <label class="filter-check">
+              <input type="checkbox" />
+              <span>Em Promoção</span>
+            </label>
+
+            <label class="filter-check">
+              <input type="checkbox" />
+              <span>Novidades</span>
+            </label>
+
+            <label class="filter-check">
+              <input type="checkbox" />
+              <span>Destaque</span>
+            </label>
+
+            <label class="filter-check">
+              <input type="checkbox" />
+              <span>Em Estoque</span>
+            </label>
+          </div>
+        </aside>
+
+        <div class="products-content">
+          <div class="products-grid">
+            <article class="product-card">
+              <div class="product-image-placeholder">
+                <span>Vestido</span>
+              </div>
+
+              <div class="product-info">
+                <span class="product-category">Vestidos</span>
+                <h3>Vestido Azul Leveza</h3>
+                <p>Peça elegante para dias ensolarados e ocasiões especiais.</p>
+
+                <div class="product-bottom">
+                  <strong>R$ 149,90</strong>
+
+                  <div class="product-actions">
+                    <button onclick="adicionarFavorito('Vestido Azul Leveza', 'Vestidos')">♡</button>
+                    <button onclick="adicionarAoCarrinho('Vestido Azul Leveza', 'Vestidos')">+</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image-placeholder">
+                <span>Body</span>
+              </div>
+
+              <div class="product-info">
+                <span class="product-category">Bodys</span>
+                <h3>Body Canelado Rosa</h3>
+                <p>Modelo confortável, versátil e perfeito para composições modernas.</p>
+
+                <div class="product-bottom">
+                  <strong>R$ 89,90</strong>
+
+                  <div class="product-actions">
+                    <button onclick="adicionarFavorito('Body Canelado Rosa', 'Bodys')">♡</button>
+                    <button onclick="adicionarAoCarrinho('Body Canelado Rosa', 'Bodys')">+</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image-placeholder">
+                <span>Saia</span>
+              </div>
+
+              <div class="product-info">
+                <span class="product-category">Saias</span>
+                <h3>Saia Midi Elegance</h3>
+                <p>Uma peça delicada para combinar com croppeds, bodys e blusas leves.</p>
+
+                <div class="product-bottom">
+                  <strong>R$ 119,90</strong>
+
+                  <div class="product-actions">
+                    <button onclick="adicionarFavorito('Saia Midi Elegance', 'Saias')">♡</button>
+                    <button onclick="adicionarAoCarrinho('Saia Midi Elegance', 'Saias')">+</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image-placeholder">
+                <span>Cropped</span>
+              </div>
+
+              <div class="product-info">
+                <span class="product-category">Croppeds</span>
+                <h3>Cropped Branco Soft</h3>
+                <p>Visual limpo, feminino e fácil de combinar com diferentes estilos.</p>
+
+                <div class="product-bottom">
+                  <strong>R$ 69,90</strong>
+
+                  <div class="product-actions">
+                    <button onclick="adicionarFavorito('Cropped Branco Soft', 'Croppeds')">♡</button>
+                    <button onclick="adicionarAoCarrinho('Cropped Branco Soft', 'Croppeds')">+</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image-placeholder">
+                <span>Vestido</span>
+              </div>
+
+              <div class="product-info">
+                <span class="product-category">Vestidos</span>
+                <h3>Vestido Preto Midi</h3>
+                <p>Clássico, elegante e ideal para eventos noturnos ou ocasiões formais.</p>
+
+                <div class="product-bottom">
+                  <strong>R$ 159,90</strong>
+
+                  <div class="product-actions">
+                    <button onclick="adicionarFavorito('Vestido Preto Midi', 'Vestidos')">♡</button>
+                    <button onclick="adicionarAoCarrinho('Vestido Preto Midi', 'Vestidos')">+</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image-placeholder">
+                <span>Conjunto</span>
+              </div>
+
+              <div class="product-info">
+                <span class="product-category">Conjuntos</span>
+                <h3>Conjunto Verão Usemari</h3>
+                <p>Conjunto leve e delicado para montar looks práticos e estilosos.</p>
+
+                <div class="product-bottom">
+                  <strong>R$ 189,90</strong>
+
+                  <div class="product-actions">
+                    <button onclick="adicionarFavorito('Conjunto Verão Usemari', 'Conjuntos')">♡</button>
+                    <button onclick="adicionarAoCarrinho('Conjunto Verão Usemari', 'Conjuntos')">+</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -386,6 +731,8 @@
   <script src="js/user.js"></script>
   <script src="js/about.js"></script>
   <script src="js/navigation.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/home.js"></script>
 </body>
 
 </html>

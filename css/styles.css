@@ -7,6 +7,7 @@
 @import url("./cart.css");
 @import url("./user.css");
 @import url("./about.css");
+@import url("./products.css");
 
 /* ===== RESET E VARIÁVEIS ===== */
 
@@ -50,8 +51,10 @@ button {
 #favoritesPage,
 #cartPage,
 #userPage,
-#aboutPage {
-  transition: opacity 0.35s ease, transform 0.35s ease;
+#aboutPage #productsPage {
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
 }
 
 #mainContent {
@@ -69,7 +72,8 @@ button {
 #favoritesPage,
 #cartPage,
 #userPage,
-#aboutPage {
+#aboutPage,
+#productsPage {
   display: none;
   opacity: 0;
   transform: translateY(10px);
@@ -78,8 +82,71 @@ button {
 #favoritesPage.show,
 #cartPage.show,
 #userPage.show,
-#aboutPage.show {
+#aboutPage.show,
+#productsPage.show {
   display: block;
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ===== CAIXA DE BOAS-VINDAS ===== */
+
+#welcomeToast {
+  position: fixed;
+  top: 95px;
+  right: 24px;
+  z-index: 9999;
+  width: 100%;
+  max-width: 360px;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-12px);
+  transition: 0.35s ease;
+  pointer-events: none;
+}
+
+#welcomeToast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.welcome-toast-content {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 49, 200, 0.08);
+  padding: 18px 18px 16px;
+}
+
+.welcome-toast-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.welcome-toast-header h4 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.8rem;
+  color: #1b1b1b;
+  margin: 0;
+}
+
+.welcome-toast-content p {
+  color: #8d7c88;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.close-welcome {
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: #8d7c88;
+  cursor: pointer;
 }
