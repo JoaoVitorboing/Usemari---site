@@ -1,120 +1,75 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Usemari</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usemari</title>
 
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header class="header">
-      <div class="brand" id="logoHome" style="cursor: pointer;">
-        <div class="brand-badge">♡</div>
-        <span class="brand-name">Usemari</span>
-      </div>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
 
-      <nav class="nav" id="navMenu">
-        <a href="#" id="homeLink" class="active">Início</a>
-        <a href="#">Produtos</a>
-        <a href="#">Sobre</a>
-        <a href="#">Contato</a>
-      </nav>
+<body>
+  <header class="header">
+    <div class="brand" id="logoHome" style="cursor: pointer">
+      <div class="brand-badge">♡</div>
+      <span class="brand-name">Usemari</span>
+    </div>
 
-      <div class="actions">
-        <button
-          class="icon-btn desktop-only search-toggle"
-          id="openSearch"
-          aria-label="Pesquisar"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            width="20"
-            height="20"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <circle cx="11" cy="11" r="7"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-        </button>
+    <nav class="nav" id="navMenu">
+      <a href="#" id="homeLink" class="active">Início</a>
+      <a href="#" id="productsLink">Produtos</a>
+      <a href="#" id="aboutLink">Sobre</a>
+      <a href="#" id="contactLink">Contato</a>
+    </nav>
 
-        <button
-          class="icon-btn desktop-only favorites-toggle"
-          id="openFavorites"
-          aria-label="Favoritos"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            width="20"
-            height="20"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path
-              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-            ></path>
-          </svg>
-        </button>
+    <div class="actions">
+      <button class="icon-btn desktop-only search-toggle" id="openSearch" aria-label="Pesquisar">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
 
-        <a href="#" class="icon-btn desktop-only" aria-label="Carrinho">
-          <svg
-            viewBox="0 0 24 24"
-            width="20"
-            height="20"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <circle cx="9" cy="21" r="1"></circle>
-            <circle cx="20" cy="21" r="1"></circle>
-            <path
-              d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-            ></path>
-          </svg>
-        </a>
+      <button class="icon-btn desktop-only favorites-toggle" id="openFavorites" aria-label="Favoritos">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path
+            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+          </path>
+        </svg>
+      </button>
 
-        <a href="#" class="icon-btn desktop-only" aria-label="Usuário">
-          <svg
-            viewBox="0 0 24 24"
-            width="20"
-            height="20"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M20 21a8 8 0 0 0-16 0"></path>
-            <circle cx="12" cy="7" r="4"></circle>
-          </svg>
-        </a>
+      <a href="#" class="icon-btn desktop-only" aria-label="Carrinho" id="openCart">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+      </a>
 
-        <button
-          class="mobile-menu-btn"
-          id="mobileMenuBtn"
-          aria-label="Abrir menu"
-        >
-          ☰
-        </button>
-      </div>
-    </header>
-    <div id="mainContent">
+      <a href="#" class="icon-btn desktop-only" aria-label="Usuário" id="openUser">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21a8 8 0 0 0-16 0"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </a>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu">
+        ☰
+      </button>
+    </div>
+  </header>
+  <div id="mainContent">
+
     <section class="hero">
       <div class="hero-bg hero-bg-1 active" id="heroBg1"></div>
       <div class="hero-bg hero-bg-2" id="heroBg2"></div>
@@ -132,8 +87,8 @@
           </h1>
 
           <p class="hero-text">
-            Peças femininas elegantes para cada momento da sua vida. Descubra a
-            coleção Usemari e realce sua beleza com sofisticação.
+            Peças femininas elegantes para cada momento da sua vida. Descubra
+            a coleção Usemari e realce sua beleza com sofisticação.
           </p>
 
           <div class="hero-buttons">
@@ -151,8 +106,6 @@
         <button class="dot" aria-label="Banner 2"></button>
         <button class="dot" aria-label="Banner 3"></button>
       </div>
-
-      <div class="promake-badge">✦ Built by Promake</div>
     </section>
 
     <section class="categorias">
@@ -200,9 +153,7 @@
       <div class="cta-icon">✧</div>
       <h2>Sua próxima peça favorita</h2>
       <p>está esperando por você</p>
-      <a href="#" class="btn-primary-cta"
-        >Ver Coleção Completa <span>→</span></a
-      >
+      <a href="#" class="btn-primary-cta">Ver Coleção Completa <span>→</span></a>
     </section>
 
     <footer class="footer">
@@ -244,71 +195,197 @@
         <p>© 2026 Usemari. Todos os direitos reservados.</p>
       </div>
     </footer>
-    </div>
+  </div>
 
-    <div class="search-modal" id="searchModal">
-      <div class="search-overlay" id="searchOverlay"></div>
+<div class="search-modal" id="searchModal">
+  <div class="search-overlay" id="searchOverlay"></div>
 
-      <div class="search-box">
-        <div class="search-box-header">
-          <h3>Buscar Produtos</h3>
-          <button
-            class="close-search"
-            id="closeSearch"
-            aria-label="Fechar busca"
-          ></button>
-        </div>
+  <div class="search-box">
+    <div class="search-box-header">
+      <h3>Buscar Produtos</h3>
 
-        <div class="search-input-wrapper">
-          <span class="search-input-icon">
-            <svg
-              viewBox="0 0 24 24"
-              width="20"
-              height="20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <circle cx="11" cy="11" r="7"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-          </span>
-
-          <input
-            type="text"
-            id="searchInput"
-            placeholder="Buscar produtos..."
-            autocomplete="off"
-          />
-        </div>
-
-        <div class="search-results" id="searchResults"></div>
-      </div>
-    </div>
-
-    <section class="favorites-page" id="favoritesPage">
-  <div class="favorites-page-content">
-
-    <div class="favorites-empty" id="favoritesEmpty">
-      <div class="favorites-icon">♡</div>
-      <h2>Nenhum Favorito Ainda</h2>
-
-      <p>
-        Comece a navegar pelos nossos produtos e adicione itens aos seus
-        favoritos clicando no ícone de coração.
-      </p>
-
-      <button class="btn-favorites" id="backToHome">
-        Explorar Produtos
+      <button
+        class="close-search"
+        id="closeSearch"
+        aria-label="Fechar busca"
+        type="button"
+      >
+        ×
       </button>
     </div>
 
-    <div class="favorites-list" id="favoritesList"></div>
+    <div class="search-input-wrapper">
+      <span class="search-input-icon">
+        <svg
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </span>
 
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Buscar produtos..."
+        autocomplete="off"
+      />
+    </div>
+
+    <div class="search-results" id="searchResults"></div>
   </div>
-</section>
-    <script src="scripts.js"></script>
-  </body>
+</div>
+  </div>
+
+  <section class="favorites-page" id="favoritesPage">
+    <div class="favorites-page-content">
+      <div class="favorites-empty" id="favoritesEmpty">
+        <div class="favorites-icon">♡</div>
+        <h2>Nenhum Favorito Ainda</h2>
+        <p>
+          Comece a navegar pelos nossos produtos e adicione itens aos seus
+          favoritos clicando no ícone de coração.
+        </p>
+        <button class="btn-favorites" id="backToHome">
+          Explorar Produtos
+        </button>
+      </div>
+      <div class="favorites-list" id="favoritesList"></div>
+    </div>
+  </section>
+
+  <section class="cart-page" id="cartPage">
+    <div class="cart-page-content">
+      <div class="cart-empty" id="cartEmpty">
+        <div class="cart-icon">👜</div>
+        <h2>Seu Carrinho está Vazio</h2>
+        <p>
+          Parece que você ainda não adicionou nenhum item ao carrinho.
+        </p>
+
+        <button class="btn-cart" id="backFromCart">
+          Continuar Comprando
+        </button>
+      </div>
+
+      <div class="cart-list" id="cartList"></div>
+    </div>
+  </section>
+
+  <section class="user-page" id="userPage">
+    <div class="user-page-content">
+      <div class="user-card">
+        <div class="user-card-top">
+          <div class="user-brand">
+            <div class="user-brand-badge">♡</div>
+            <span class="user-brand-name">Usemari</span>
+          </div>
+
+          <h2 id="userFormTitle">Entrar</h2>
+          <p id="userFormSubtitle">Bem-vinda de volta! Entre para continuar</p>
+
+          <form class="user-form" id="loginForm">
+            <label for="usuario">Usuário</label>
+            <input type="text" id="usuario" placeholder="Digite seu usuário" />
+
+            <div class="user-password-top">
+              <label for="senha">Senha</label>
+              <a href="#">Esqueceu a senha?</a>
+            </div>
+
+            <div class="password-field">
+              <input type="password" id="senha" placeholder="Digite sua senha" />
+              <button type="button" class="toggle-password">👁</button>
+            </div>
+
+            <button type="submit" class="btn-user-login" id="submitUserForm">
+              Entrar
+            </button>
+          </form>
+
+          <div class="social-login">
+            <p>ou continue com</p>
+
+            <button type="button" class="social-btn google-btn" id="googleLogin">
+              <span class="social-icon">G</span>
+              <span>Continuar com Google</span>
+            </button>
+
+            <button type="button" class="social-btn apple-btn" id="appleLogin">
+              <span class="social-icon"></span>
+              <span>Continuar com Apple</span>
+            </button>
+
+            <button type="button" class="social-btn facebook-btn" id="facebookLogin">
+              <span class="social-icon">f</span>
+              <span>Continuar com Facebook</span>
+            </button>
+          </div>
+
+          <div class="user-card-bottom">
+            <p>
+              <span id="userToggleText">Não tem uma conta?</span>
+              <a href="#" id="toggleCadastro">Criar conta</a>
+            </p>
+          </div>
+        </div>
+      </div>
+  </section>
+
+
+  <div class="welcome-toast" id="welcomeToast">
+    <div class="welcome-toast-content">
+      <div class="welcome-toast-header">
+        <h4>Bem-vinda ✨</h4>
+        <button type="button" class="close-welcome" id="closeWelcome">×</button>
+      </div>
+      <p id="welcomeToastText">Seja bem-vinda à Usemari!</p>
+    </div>
+  </div>
+
+  <section class="about-page" id="aboutPage">
+    <div class="about-container">
+      <div class="section-tittle">
+        <h2>Sobre Usemari</h2>
+        <div class="line"></div>
+        <p>Uma marca criada com amor para a mulher moderna que valoriza elegância e leveza.</p>
+      </div>
+
+      <div class="about-card">
+        <h3>Nossa História</h3>
+        <p>
+          A Usemari nasceu do desejo de oferecer moda feminina elegante e acessível para a mulher contemporânea. Cada
+          peça é escolhida com cuidado, pensando no conforto, estilo e na autoestima de quem a veste.
+        </p>
+
+        <p>
+          Acreditamos que a moda é uma forma de expressão. Por isso, nossa coleção reúne peças versáteis que combinam
+          com diferentes momentos — do casual ao especial — sempre com aquele toque de feminilidade que nos define.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <script src="js/header.js"></script>
+  <script src="js/carousel.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/favorites.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/user.js"></script>
+  <script src="js/about.js"></script>
+  <script src="js/navigation.js"></script>
+</body>
+
 </html>

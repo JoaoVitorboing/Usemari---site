@@ -1,0 +1,41 @@
+.about-page {
+    min-height: calc(100vh - 76px);
+    background: #f8f0f4;
+    padding: 80px 20px;
+}
+
+.about-container {
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+.about-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 46px 42px;
+}
+
+.about-card h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.2rem;
+  color: #111827;
+  margin-bottom: 22px;
+}
+
+.about-card p {
+    color: #8d7c88;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 760px) {
+    .about-card {
+        padding: 32px 24px;
+    }
+
+    .about-card h3 {
+        font-size: 1.8rem;
+    } 
+}
