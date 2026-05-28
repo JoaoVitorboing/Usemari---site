@@ -86,6 +86,26 @@
     setActiveMenu("homeLink");
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
+  let actionToastTimeout;
+
+function mostrarToastAcao(titulo, texto) {
+  const toast = document.getElementById("actionToast");
+  const toastTitle = document.getElementById("actionToastTitle");
+  const toastText = document.getElementById("actionToastText");
+
+  if (!toast || !toastTitle || !toastText) return;
+
+  toastTitle.textContent = titulo;
+  toastText.textContent = texto;
+
+  toast.classList.add("show");
+
+  clearTimeout(actionToastTimeout);
+  actionToastTimeout = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3000);
+}
+
 
   window.appNavigation = {
     abrirFavoritos: () => {
@@ -115,4 +135,5 @@
 
     voltarParaHome,
   };
+  window.mostrarToastAcao = mostrarToastAcao;
 })();

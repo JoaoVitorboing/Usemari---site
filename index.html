@@ -6,18 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Usemari</title>
 
+  <link rel="icon" href="image/logo.png" type="image/png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
+
 </head>
 
 <body>
   <header class="header">
-    <div class="brand" id="logoHome" style="cursor: pointer">
-      <div class="brand-badge">♡</div>
+    <div class="brand" id="logoHome">
+      <div class="brand-badge">
+        <img src="image/logo.png" alt="Logo Usemari" class="brand-logo" />
+      </div>
+
       <span class="brand-name">Usemari</span>
     </div>
 
@@ -37,22 +43,27 @@
         </svg>
       </button>
 
-      <button class="icon-btn desktop-only favorites-toggle" id="openFavorites" aria-label="Favoritos">
+      <button class="icon-btn desktop-only favorites-toggle header-icon-with-count" id="openFavorites"
+        aria-label="Favoritos">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
           stroke-linecap="round" stroke-linejoin="round">
           <path
             d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
           </path>
         </svg>
+
+        <span class="header-count" id="favoritesCount">0</span>
       </button>
 
-      <a href="#" class="icon-btn desktop-only" aria-label="Carrinho" id="openCart">
+      <a href="#" class="icon-btn desktop-only header-icon-with-count" aria-label="Carrinho" id="openCart">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
           stroke-linecap="round" stroke-linejoin="round">
           <circle cx="9" cy="21" r="1"></circle>
           <circle cx="20" cy="21" r="1"></circle>
           <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
         </svg>
+
+        <span class="header-count" id="cartCount">0</span>
       </a>
 
       <a href="#" class="icon-btn desktop-only user-trigger" aria-label="Usuário" id="openUser">
@@ -506,17 +517,35 @@
       <div class="products-header">
         <div>
           <h2>Todos os Produtos</h2>
-          <p>Mostrando nossa seleção especial de peças Usemari</p>
+          <p>Escolha uma categoria e encontre sua peça favorita.</p>
         </div>
 
-        <div class="products-view-actions">
-          <button class="view-btn active">▦</button>
-          <button class="view-btn">☰</button>
-        </div>
+        <button class="filter-toggle-btn" id="openProductFilters" type="button">
+          ☰
+          <span>Filtros</span>
+        </button>
+      </div>
+
+      <div class="product-tabs">
+        <button class="product-tab active" data-category="Todos">Todos</button>
+        <button class="product-tab " data-category="Bodys">Bodys</button>
+        <button class="product-tab" data-category="Vestidos">Vestidos</button>
+        <button class="product-tab" data-category="Saias">Saias</button>
+        <button class="product-tab" data-category="Croppeds">Croppeds</button>
+        <button class="product-tab" data-category="Conjuntos">Conjuntos</button>
       </div>
 
       <div class="products-layout">
-        <aside class="products-sidebar">
+        <aside class="products-sidebar" id="productFilters">
+          <div class="filters-header">
+            <h3>Filtros</h3>
+            <button type="button" id="closeProductFilters" class="close-filters">
+              ×
+            </button>
+          </div>
+
+
+
           <div class="filter-group">
             <label for="productSort">Ordenar por</label>
             <select id="productSort">
@@ -585,138 +614,416 @@
           </div>
         </aside>
 
+        <div class="product-filter-overlay" id="productFilterOverlay"></div>
+
         <div class="products-content">
           <div class="products-grid">
-            <article class="product-card">
-              <div class="product-image-placeholder">
-                <span>Vestido</span>
-              </div>
-
-              <div class="product-info">
-                <span class="product-category">Vestidos</span>
-                <h3>Vestido Azul Leveza</h3>
-                <p>Peça elegante para dias ensolarados e ocasiões especiais.</p>
-
-                <div class="product-bottom">
-                  <strong>R$ 149,90</strong>
-
-                  <div class="product-actions">
-                    <button onclick="adicionarFavorito('Vestido Azul Leveza', 'Vestidos')">♡</button>
-                    <button onclick="adicionarAoCarrinho('Vestido Azul Leveza', 'Vestidos')">+</button>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="product-card">
-              <div class="product-image-placeholder">
-                <span>Body</span>
+            <article class="product-card" data-tab="Bodys" data-category="Bodys">
+              <div class="product-image">
+                <img src="image/produtos/bodys/body-preto-alca.jpg" alt="Body Preto de Alcinha" />
               </div>
 
               <div class="product-info">
                 <span class="product-category">Bodys</span>
-                <h3>Body Canelado Rosa</h3>
-                <p>Modelo confortável, versátil e perfeito para composições modernas.</p>
+                <h3>Body Preto de Alcinha</h3>
+                <p>Modelo elegante com decote profundo e amarração delicada nos ombros.</p>
 
                 <div class="product-bottom">
                   <strong>R$ 89,90</strong>
 
                   <div class="product-actions">
-                    <button onclick="adicionarFavorito('Body Canelado Rosa', 'Bodys')">♡</button>
-                    <button onclick="adicionarAoCarrinho('Body Canelado Rosa', 'Bodys')">+</button>
+                    <button class="favorite-product-btn" data-name="Body Preto de Alcinha" data-category="Bodys"
+                      data-price="89.90" onclick="adicionarFavorito('Body Preto de Alcinha', 'Bodys', 89.90, this)">
+                      ♡
+                    </button>
+
+                    <button class="cart-product-btn" data-name="Body Preto de Alcinha"
+                      onclick="adicionarAoCarrinho('Body Preto de Alcinha', 'Bodys', 89.90, this)">
+                      +
+                    </button>
                   </div>
                 </div>
               </div>
             </article>
 
-            <article class="product-card">
-              <div class="product-image-placeholder">
-                <span>Saia</span>
+            <article class="product-card" data-tab="Bodys" data-category="Bodys">
+              <div class="product-image">
+                <img src="image/produtos/bodys/body-rosa-alca.jpg" alt="Body Rosa de Alcinha" />
               </div>
 
               <div class="product-info">
-                <span class="product-category">Saias</span>
-                <h3>Saia Midi Elegance</h3>
-                <p>Uma peça delicada para combinar com croppeds, bodys e blusas leves.</p>
+                <span class="product-category">Bodys</span>
+                <h3>Body Rosa de Alcinha</h3>
+                <p>Body feminino em tom rosa vibrante, perfeito para looks modernos e leves.</p>
+
+                <div class="product-bottom">
+                  <strong>R$ 89,90</strong>
+
+                  <div class="product-actions">
+                    <button class="favorite-product-btn" data-name="Body Rosa de Alcinha" data-category="Bodys"
+                      data-price="89.90" onclick="adicionarFavorito('Body Rosa de Alcinha', 'Bodys', 89.90, this)">
+                      ♡
+                    </button>
+
+                    <button class="cart-product-btn" data-name="Body Rosa de Alcinha"
+                      onclick="adicionarAoCarrinho('Body Rosa de Alcinha', 'Bodys', 89.90, this)">
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="Bodys">
+              <div class="product-image">
+                <img src="image/produtos/bodys/body-azul-marinho.jpg" alt="Body Azul Marinho Básico" />
+              </div>
+
+              <div class="product-info">
+                <span class="product-category">Bodys</span>
+                <h3>Body Azul Marinho Básico</h3>
+                <p>Peça confortável e versátil para compor looks casuais com elegância.</p>
+
+                <div class="product-bottom">
+                  <strong>R$ 79,90</strong>
+
+                  <div class="product-actions">
+                    <button class="favorite-product-btn" data-name="Body Azul Marinho Básico" data-category="Bodys"
+                      data-price="79.90" onclick="adicionarFavorito('Body Azul Marinho Básico', 'Bodys', 79.90, this)">
+                      ♡
+                    </button>
+
+                    <button class="cart-product-btn" data-name="Body Azul Marinho Básico"
+                      onclick="adicionarAoCarrinho('Body Azul Marinho Básico', 'Bodys', 79.90, this)">
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-tab="Bodys" data-category="Bodys">
+              <div class="product-image">
+                <img src="image/produtos/bodys/body-branco-camisa.jpg" alt="Body Branco Camisa" />
+              </div>
+
+              <div class="product-info">
+                <span class="product-category">Bodys</span>
+                <h3>Body Branco Camisa</h3>
+                <p>Modelo sofisticado com manga longa, ideal para produções elegantes.</p>
 
                 <div class="product-bottom">
                   <strong>R$ 119,90</strong>
 
                   <div class="product-actions">
-                    <button onclick="adicionarFavorito('Saia Midi Elegance', 'Saias')">♡</button>
-                    <button onclick="adicionarAoCarrinho('Saia Midi Elegance', 'Saias')">+</button>
+                    <button class="favorite-product-btn" data-name="Body Branco Camisa" data-category="Bodys"
+                      data-price="119.90" onclick="adicionarFavorito('Body Branco Camisa', 'Bodys', 119.90, this)">
+                      ♡
+                    </button>
+
+                    <button class="cart-product-btn" data-name="Body Branco Camisa"
+                      onclick="adicionarAoCarrinho('Body Branco Camisa', 'Bodys', 119.90, this)">
+                      +
+                    </button>
                   </div>
                 </div>
               </div>
             </article>
 
-            <article class="product-card">
-              <div class="product-image-placeholder">
-                <span>Cropped</span>
+            <article class="product-card" data-tab="Bodys" data-category="Bodys">
+              <div class="product-image">
+                <img src="image/produtos/bodys/body-vinho-manga.jpg" alt="Body Vinho Manga Longa" />
               </div>
 
               <div class="product-info">
-                <span class="product-category">Croppeds</span>
-                <h3>Cropped Branco Soft</h3>
-                <p>Visual limpo, feminino e fácil de combinar com diferentes estilos.</p>
+                <span class="product-category">Bodys</span>
+                <h3>Body Vinho Manga Longa</h3>
+                <p>Body de manga longa com visual elegante e tom vinho marcante.</p>
 
                 <div class="product-bottom">
-                  <strong>R$ 69,90</strong>
+                  <strong>R$ 99,90</strong>
 
                   <div class="product-actions">
-                    <button onclick="adicionarFavorito('Cropped Branco Soft', 'Croppeds')">♡</button>
-                    <button onclick="adicionarAoCarrinho('Cropped Branco Soft', 'Croppeds')">+</button>
+                    <button class="favorite-product-btn" data-name="Body Vinho Manga Longa" data-category="Bodys"
+                      data-price="99.90" onclick="adicionarFavorito('Body Vinho Manga Longa', 'Bodys', 99.90, this)">
+                      ♡
+                    </button>
+
+                    <button class="cart-product-btn" data-name="Body Vinho Manga Longa"
+                      onclick="adicionarAoCarrinho('Body Vinho Manga Longa', 'Bodys', 99.90, this)">
+                      +
+                    </button>
                   </div>
                 </div>
               </div>
             </article>
 
-            <article class="product-card">
-              <div class="product-image-placeholder">
-                <span>Vestido</span>
+            <article class="product-card" data-category="Bodys">
+              <div class="product-image">
+                <img src="image/produtos/bodys/body-marrom-manga.jpg" alt="Body Marrom Manga Longa" />
               </div>
 
               <div class="product-info">
-                <span class="product-category">Vestidos</span>
-                <h3>Vestido Preto Midi</h3>
-                <p>Clássico, elegante e ideal para eventos noturnos ou ocasiões formais.</p>
+                <span class="product-category">Bodys</span>
+                <h3>Body Marrom Manga Longa</h3>
+                <p>Modelo ajustado em tom marrom, perfeito para composições sofisticadas.</p>
 
                 <div class="product-bottom">
-                  <strong>R$ 159,90</strong>
+                  <strong>R$ 99,90</strong>
 
                   <div class="product-actions">
-                    <button onclick="adicionarFavorito('Vestido Preto Midi', 'Vestidos')">♡</button>
-                    <button onclick="adicionarAoCarrinho('Vestido Preto Midi', 'Vestidos')">+</button>
+                    <button class="favorite-product-btn" data-name="Body Marrom Manga Longa" data-category="Bodys"
+                      data-price="99.90" onclick="adicionarFavorito('Body Marrom Manga Longa', 'Bodys', 99.90, this)">
+                      ♡
+                    </button>
+
+                    <button class="cart-product-btn" data-name="Body Marrom Manga Longa"
+                      onclick="adicionarAoCarrinho('Body Marrom Manga Longa', 'Bodys', 99.90, this)">
+                      +
+                    </button>
                   </div>
                 </div>
               </div>
             </article>
 
-            <article class="product-card">
-              <div class="product-image-placeholder">
-                <span>Conjunto</span>
+            <article class="product-card" data-tab="Bodys" data-category="Bodys">
+              <div class="product-image">
+                <img src="image/produtos/bodys/body-rosa-claro.jpg" alt="Body Rosa Claro Manga Longa" />
               </div>
 
               <div class="product-info">
-                <span class="product-category">Conjuntos</span>
-                <h3>Conjunto Verão Usemari</h3>
-                <p>Conjunto leve e delicado para montar looks práticos e estilosos.</p>
+                <span class="product-category">Bodys</span>
+                <h3>Body Rosa Claro</h3>
+                <p>Peça delicada em tom rosa claro, ideal para looks femininos e leves.</p>
 
                 <div class="product-bottom">
-                  <strong>R$ 189,90</strong>
+                  <strong>R$ 94,90</strong>
 
                   <div class="product-actions">
-                    <button onclick="adicionarFavorito('Conjunto Verão Usemari', 'Conjuntos')">♡</button>
-                    <button onclick="adicionarAoCarrinho('Conjunto Verão Usemari', 'Conjuntos')">+</button>
+                    <button class="favorite-product-btn" data-name="Body Rosa Claro" data-category="Bodys"
+                      data-price="94.90" onclick="adicionarFavorito('Body Rosa Claro', 'Bodys', 94.90, this)">
+                      ♡
+                    </button>
+
+                    <button class="cart-product-btn" data-name="Body Rosa Claro"
+                      onclick="adicionarAoCarrinho('Body Rosa Claro', 'Bodys', 94.90, this)">
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="Bodys">
+              <div class="product-image">
+                <img src="image/produtos/bodys/body-marrom-canelado.jpg" alt="Body Marrom Canelado" />
+              </div>
+
+              <div class="product-info">
+                <span class="product-category">Bodys</span>
+                <h3>Body Marrom Canelado</h3>
+                <p>Body canelado sem manga, básico e moderno para o dia a dia.</p>
+
+                <div class="product-bottom">
+                  <strong>R$ 84,90</strong>
+
+                  <div class="product-actions">
+                    <button class="favorite-product-btn" data-name="Body Marrom Canelado" data-category="Bodys"
+                      data-price="84.90" onclick="adicionarFavorito('Body Marrom Canelado', 'Bodys', 84.90, this)">
+                      ♡
+                    </button>
+
+                    <button class="cart-product-btn" data-name="Body Marrom Canelado"
+                      onclick="adicionarAoCarrinho('Body Marrom Canelado', 'Bodys', 84.90, this)">
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-tab="Bodys" data-category="Bodys">
+              <div class="product-image">
+                <img src="image/produtos/bodys/body-vinho-gola.jpg" alt="Body Vinho Gola Alta" />
+              </div>
+
+              <div class="product-info">
+                <span class="product-category">Bodys</span>
+                <h3>Body Vinho Gola Alta</h3>
+                <p>Modelo de gola alta e manga longa, elegante para dias mais frescos.</p>
+
+                <div class="product-bottom">
+                  <strong>R$ 109,90</strong>
+
+                  <div class="product-actions">
+                    <button class="favorite-product-btn" data-name="Body Vinho Gola Alta" data-category="Bodys"
+                      data-price="109.90" onclick="adicionarFavorito('Body Vinho Gola Alta', 'Bodys', 109.90, this)">
+                      ♡
+                    </button>
+
+                    <button class="cart-product-btn" data-name="Body Vinho Gola Alta"
+                      onclick="adicionarAoCarrinho('Body Vinho Gola Alta', 'Bodys', 109.90, this)">
+                      +
+                    </button>
                   </div>
                 </div>
               </div>
             </article>
           </div>
+
+
+          <article class="product-card" data-category="Vestidos">
+            <div class="product-image">
+              <img src="image/produtos/vestido-azul.jpg" alt="Vestido Azul Floral" />
+            </div>
+
+            <div class="product-info">
+              <span class="product-category">Vestidos</span>
+              <h3>Vestido Azul Floral</h3>
+              <p>Vestido leve e delicado, perfeito para dias ensolarados e ocasiões especiais.</p>
+
+              <div class="product-bottom">
+                <strong>R$ 149,90</strong>
+
+                <div class="product-actions">
+                  <button class="favorite-product-btn" data-name="Vestido Azul Floral" data-category="Vestidos"
+                    data-price="149.90" onclick="adicionarFavorito('Vestido Azul Floral', 'Vestidos', 149.90, this)">
+                    ♡
+                  </button>
+
+                  <button class="cart-product-btn" data-name="Vestido Azul Floral"
+                    onclick="adicionarAoCarrinho('Vestido Azul Floral', 'Vestidos', 149.90, this)">
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-tab="Todos" data-category="Vestidos">
+            <div class="product-image">
+              <img src="image/produtos/vestido-preto.jpg" alt="Vestido Preto Midi" />
+            </div>
+
+            <div class="product-info">
+              <span class="product-category">Vestidos</span>
+              <h3>Vestido Preto Midi</h3>
+              <p>Clássico, elegante e ideal para eventos noturnos ou ocasiões mais formais.</p>
+
+              <div class="product-bottom">
+                <strong>R$ 159,90</strong>
+
+                <div class="product-actions">
+                  <button class="favorite-product-btn" data-name="Vestido Preto Midi" data-category="Vestidos"
+                    data-price="159.90" onclick="adicionarFavorito('Vestido Preto Midi', 'Vestidos', 159.90, this)">
+                    ♡
+                  </button>
+
+                  <button class="cart-product-btn" data-name="Vestido Preto Midi"
+                    onclick="adicionarAoCarrinho('Vestido Preto Midi', 'Vestidos', 159.90, this)">
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-tab="Todos" data-category="Saias">
+            <div class="product-image">
+              <img src="image/produtos/saia-midi.jpg" alt="Saia Midi Marrom" />
+            </div>
+
+            <div class="product-info">
+              <span class="product-category">Saias</span>
+              <h3>Saia Midi Marrom</h3>
+              <p>Peça versátil e sofisticada para montar looks elegantes e modernos.</p>
+
+              <div class="product-bottom">
+                <strong>R$ 119,90</strong>
+
+                <div class="product-actions">
+                  <button class="favorite-product-btn" data-name="Saia Midi Marrom" data-category="Saias"
+                    data-price="119.90" onclick="adicionarFavorito('Saia Midi Marrom', 'Saias', 119.90, this)">
+                    ♡
+                  </button>
+
+                  <button class="cart-product-btn" data-name="Saia Midi Marrom"
+                    onclick="adicionarAoCarrinho('Saia Midi Marrom', 'Saias', 119.90, this)">
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-tab="Todos" data-category="Croppeds">
+            <div class="product-image">
+              <img src="image/produtos/cropped-branco.jpg" alt="Cropped Branco Soft" />
+            </div>
+
+            <div class="product-info">
+              <span class="product-category">Croppeds</span>
+              <h3>Cropped Branco Soft</h3>
+              <p>Visual limpo, feminino e fácil de combinar com diferentes estilos.</p>
+
+              <div class="product-bottom">
+                <strong>R$ 69,90</strong>
+
+                <div class="product-actions">
+                  <button class="favorite-product-btn" data-name="Cropped Branco Soft" data-category="Croppeds"
+                    data-price="69.90" onclick="adicionarFavorito('Cropped Branco Soft', 'Croppeds', 69.90, this)">
+                    ♡
+                  </button>
+
+                  <button class="cart-product-btn" data-name="Cropped Branco Soft"
+                    onclick="adicionarAoCarrinho('Cropped Branco Soft', 'Croppeds', 69.90, this)">
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-tab="Todos" data-category="Conjuntos">
+            <div class="product-image">
+              <img src="image/produtos/conjunto-verao.jpg" alt="Conjunto Verão Usemari" />
+            </div>
+
+            <div class="product-info">
+              <span class="product-category">Conjuntos</span>
+              <h3>Conjunto Verão Usemari</h3>
+              <p>Conjunto leve e delicado para montar looks práticos, femininos e estilosos.</p>
+
+              <div class="product-bottom">
+                <strong>R$ 189,90</strong>
+
+                <div class="product-actions">
+                  <button class="favorite-product-btn" data-name="Conjunto Verão Usemari" data-category="Conjuntos"
+                    data-price="189.90"
+                    onclick="adicionarFavorito('Conjunto Verão Usemari', 'Conjuntos', 189.90, this)">
+                    ♡
+                  </button>
+
+                  <button class="cart-product-btn" data-name="Conjunto Verão Usemari"
+                    onclick="adicionarAoCarrinho('Conjunto Verão Usemari', 'Conjuntos', 189.90, this)">
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
     </div>
   </section>
+
+  <div class="action-toast" id="actionToast">
+    <div class="action-toast-content">
+      <strong id="actionToastTitle">Sucesso!</strong>
+      <p id="actionToastText">Produto adicionado.</p>
+    </div>
+  </div>
 
 
 
@@ -733,6 +1040,7 @@
   <script src="js/navigation.js"></script>
   <script src="js/products.js"></script>
   <script src="js/home.js"></script>
+  <script src="js/headerCounts.js"></script>
 </body>
 
 </html>

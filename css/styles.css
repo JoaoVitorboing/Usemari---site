@@ -150,3 +150,58 @@ button {
   color: #8d7c88;
   cursor: pointer;
 }
+
+/* ===== TOAST DE AÇÃO ===== */
+
+.action-toast {
+  position: fixed;
+  top: 95px;
+  right: 24px;
+  z-index: 9999;
+  width: 100%;
+  max-width: 360px;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-12px);
+  transition: 0.35s ease;
+  pointer-events: none;
+}
+
+.action-toast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.action-toast-content {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 49, 200, 0.14);
+  padding: 18px;
+}
+
+.action-toast-content strong {
+  display: block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.7rem;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.action-toast-content p {
+  color: #8d7c88;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .action-toast {
+    right: 14px;
+    left: 14px;
+    width: auto;
+    max-width: none;
+  }
+}

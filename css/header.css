@@ -2,6 +2,13 @@
   cursor: pointer;
 }
 
+.brand-logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+
 .header {
   position: sticky;
   top: 0;
@@ -216,4 +223,33 @@
     height: 34px;
     border-radius: 10px;
   }
+}
+
+.header-icon-with-count {
+  position: relative;
+}
+
+.header-count {
+  position: absolute;
+  top: -10px;
+  right: -12px;
+
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+
+  border-radius: 999px;
+  background: var(--rosa);
+  color: #ffffff;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+
+  display: none;
+}
+
+.header-count.show {
+  display: inline-block;
 }
